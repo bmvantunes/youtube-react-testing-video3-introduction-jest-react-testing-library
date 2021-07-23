@@ -19,7 +19,7 @@ export function Counter({ description, defaultCount }: CounterProps) {
         <input
           value={incrementor}
           onChange={(evt) => {
-            setIncrementor(parseInt(evt.target.value) || 0);
+            setIncrementor(parseInt(evt.target.value) || 1);
           }}
           type="number"
         />

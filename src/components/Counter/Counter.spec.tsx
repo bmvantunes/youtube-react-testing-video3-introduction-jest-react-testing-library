@@ -25,6 +25,20 @@ describe('Counter', () => {
       it('renders "Current Count: 15"', () => {
         expect(screen.getByText('Current Count: 15')).toBeInTheDocument();
       });
+
+      describe('when the incrementor changes to empty string and "+" button is clicked', () => {
+        beforeEach(() => {
+          user.type(
+            screen.getByLabelText(/Incrementor/),
+            '{selectall}{delete}'
+          );
+          user.click(screen.getByRole('button', { name: 'Add to Counter' }));
+        });
+
+        it('renders "Current Count: 16"', () => {
+          expect(screen.getByText('Current Count: 16')).toBeInTheDocument();
+        });
+      });
     });
 
     describe('when the incrementor changes to 25 and "-" button is clicked', () => {
